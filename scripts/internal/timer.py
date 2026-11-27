@@ -5,7 +5,7 @@ import platform
 import signal
 import subprocess
 from threading import Timer
-from util import simple_usage_message, bool2bash
+from util import BASH_CMD, simple_usage_message, bool2bash
 
 
 _is_windows = (platform.system() == "Windows")
@@ -89,6 +89,8 @@ def _main():
     output_file = sys.argv[3]
 
     command = sys.argv[4:]
+    if command and command[0] == 'bash':
+        command[0] = BASH_CMD
 
     data = timer(hard_time_limit, command)
 

@@ -5,6 +5,9 @@ import shutil
 
 BASH_CMD = shutil.which('bash') or 'bash'
 
+if sys.platform == 'win32' and hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(newline='\n')
+
 
 def simple_usage_message(arguments_text):
     sys.stderr.write('Usage: python {} {}\n'.format(os.path.basename(sys.argv[0]), arguments_text))
