@@ -2,7 +2,7 @@ import sys
 import os
 import subprocess
 
-from util import get_bool_environ, load_json, simple_usage_message, wait_process_success
+from util import BASH_CMD, get_bool_environ, load_json, simple_usage_message, wait_process_success
 from color_util import cprint, cprinterr, colors
 import tests_util as tu
 
@@ -62,7 +62,7 @@ if __name__ == '__main__':
 
     for test_name in available_tests:
         command = [
-            'bash',
+            BASH_CMD,
             os.path.join(INTERNALS_DIR, 'invoke_test.sh'),
             tests_dir,
             test_name,
@@ -102,7 +102,7 @@ if __name__ == '__main__':
 
         if subtask_result is None:
             command = [
-                'bash',
+                BASH_CMD,
                 os.path.join(INTERNALS_DIR, 'subtask_summary.sh'),
                 subtask,
                 str(len(tests))
@@ -125,7 +125,7 @@ if __name__ == '__main__':
                     expected_verdict_args = ["expected: {}".format(expected_verdict)]
             
             command = [
-                'bash',
+                BASH_CMD,
                 os.path.join(INTERNALS_DIR, 'subtask_summary.sh'),
                 subtask,
                 str(len(tests)),

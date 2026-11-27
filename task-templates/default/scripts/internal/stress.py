@@ -5,7 +5,7 @@ import random
 import subprocess
 import importlib.util
 
-from util import simple_usage_message, wait_process_success
+from util import BASH_CMD, simple_usage_message, wait_process_success
 from color_util import cprint, colors
 
 
@@ -108,7 +108,7 @@ Error: Could not successfully create the test generation command line.
         print(test_gen_cmd_str)
 
         command = [
-            'bash',
+            BASH_CMD,
             os.path.join(INTERNALS_DIR, 'stress_single_test.sh'),
             str(round_index),
         ] + test_gen_cmd_list

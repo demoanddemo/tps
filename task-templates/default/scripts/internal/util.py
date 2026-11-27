@@ -1,6 +1,9 @@
 import sys
 import os
 import json
+import shutil
+
+BASH_CMD = shutil.which('bash') or 'bash'
 
 
 def simple_usage_message(arguments_text):
